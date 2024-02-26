@@ -1,0 +1,8 @@
+---
+const { name, image } = Astro.props;
+---
+<div class="">
+  <p class="text-black font-medium mb-2">{name}</p>
+  <slot />
+  <img class="mt-4" src={image} />
+</div>

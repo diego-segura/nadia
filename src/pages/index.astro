@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ItemCompany from '../components/ItemCompany.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -12,38 +13,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		<main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-20 max-w-6xl mx-auto p-5">
+      <div class="flex flex-col gap-0 text-3xl font-medium text-neutral-400 tracking-[-0.02em] *:transition *:duration-300">
+        <a href="/ceos" class="hover:text-black border-none">CEOs</a>
+        <a href="/companies" class="hover:text-black border-none">Companies</a>
+        <a href="/letters" class="hover:text-black border-none">Letters</a>
+      </div>
+      <div class="col-span-2 grid lg:grid-cols-2 gap-4">
+        <ItemCompany name="Lockchain" image="companies/lockchain.jpg">
+          <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+        </ItemCompany>
+        <ItemCompany name="Dromore Energy" image="companies/dromore.png">
+          <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+        </ItemCompany>
+        <ItemCompany name="Hatz" image="companies/hatz.png">
+          <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+        </ItemCompany>
+      </div>
 		</main>
 		<Footer />
 	</body>
