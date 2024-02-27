@@ -1,36 +1,51 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Main from '../layouts/Main.astro';
+import ItemCEO from '../components/ItemCEO.astro';
 import ItemCompany from '../components/ItemCompany.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import SideLink from '../components/SideLink.astro';
 ---
+<script is:inline>
+  function showContent(id) {
+    var contents = document.getElementsByClassName('content');
+    for (var i = 0; i < contents.length; i++) {
+      contents[i].style.display = 'none';
+    }
+    document.getElementById(id).style.display = 'grid';
+  }
+</script>
+<Main>
+  <div class="flex flex-col gap-0 text-3xl font-medium text-neutral-400 tracking-[-0.02em] *:transition *:duration-300">
+    <div class="hover:cursor-pointer hover:text-black" onclick="showContent('content1')">CEOs</div>
+    <div class="hover:cursor-pointer hover:text-black" onclick="showContent('content2')">Companies</div>
+    <div class="hover:cursor-pointer hover:text-black" onclick="showContent('content3')">Letters</div>
+  </div>
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-20 max-w-6xl mx-auto p-5">
-      <div class="flex flex-col gap-0 text-3xl font-medium text-neutral-400 tracking-[-0.02em] *:transition *:duration-300">
-        <a href="/ceos" class="hover:text-black border-none">CEOs</a>
-        <a href="/companies" class="hover:text-black border-none">Companies</a>
-        <a href="/letters" class="hover:text-black border-none">Letters</a>
-      </div>
-      <div class="col-span-2 grid lg:grid-cols-2 gap-4">
-        <ItemCompany name="Lockchain" image="companies/lockchain.jpg">
-          <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
-        </ItemCompany>
-        <ItemCompany name="Dromore Energy" image="companies/dromore.png">
-          <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
-        </ItemCompany>
-        <ItemCompany name="Hatz" image="companies/hatz.png">
-          <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
-        </ItemCompany>
-      </div>
-		</main>
-		<Footer />
-	</body>
-</html>
+  <div id="content1" class="content col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-y-16 gap-y-6 max-md:mt-8">
+    <ItemCEO name="Andrew Howard" portrait="ceos/andrew.png" icon="ceos/icon-lockchain.png">
+      <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+    </ItemCEO>
+    <ItemCEO name="Jimmy Hatzell" portrait="ceos/jimmy.png" icon="ceos/icon-hatz.png">
+      <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+    </ItemCEO>
+    <ItemCEO name="Andrew Howard" portrait="ceos/andrew.png" icon="ceos/icon-lockchain.png">
+      <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+    </ItemCEO>
+  </div>
+
+  <div id="content2" class="content col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-y-16 gap-y-6 max-md:mt-8">
+    <ItemCompany name="Lockchain" image="companies/lockchain.jpg">
+      <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+    </ItemCompany>
+    <ItemCompany name="Dromore Energy" image="companies/dromore.png" class="min-h-48">
+      <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+    </ItemCompany>
+    <ItemCompany name="Hatz" image="companies/hatz.png">
+      <p class="">Launched in partnership with veteran cyber security CEO <a href="" class="bodylink">Andrew Howard</a>, Risk management for digital assets powered by a breakthrough proprietary data model.</p>
+    </ItemCompany>
+  </div>
+
+  <div id="content3" class="content col-span-2 hidden grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-16 mt-8">
+    Coming soon.
+  </div>
+
+</Main>
