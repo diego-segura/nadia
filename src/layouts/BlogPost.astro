@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <html lang="en">
@@ -44,6 +44,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.title h1 {
 				margin: 0 0 0.5em 0;
 			}
+              h2 {
+              font-size: 24px;
+              }
 			.date {
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
@@ -54,13 +57,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		</style>
 	</head>
 
-	<body>
-		<Header />
+  <body>
+    <div class="col-start-1 flex flex-col justify-between items-left max-md:mt-40">
+      <a href="/"><img src="../nadia-black.svg" alt="Nadia Partners logo" class="h-12 mr-auto mb-12 max-md:mb-20" /></a>
+      <div class="text-black text-3xl leading-[0.9] font-medium tracking-[-0.03em]">Nadia <br />Partners</div>
+    </div>
+
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
 				<div class="prose">
 					<div class="title">
 						<div class="date">
